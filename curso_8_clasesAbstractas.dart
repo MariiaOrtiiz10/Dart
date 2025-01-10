@@ -3,6 +3,13 @@ void main() {
   print(chani);
   Perro Jacky = Perro(esDomestico: true, type: animalType.Terrestre);
   print(Jacky);
+  Gato gato = Gato(); 
+  gato.animal = "Gato"; 
+  gato.legs = 4;
+  gato.type = animalType.Terrestre;
+  gato.esDomestico = true; 
+  print(gato); 
+  gato.comer(2);
 }
 
 // Una clase abstracta define la estructura y el comportamiento que otras clases deben heredar o implementar.
@@ -68,4 +75,21 @@ class Perro extends Animales {
 }
 
 //Implements
-
+class Gato implements Animales {
+  @override 
+  String animal = 'Gato'; 
+  @override 
+  int? legs;
+  @override 
+  animalType type = animalType.Terrestre;
+  @override 
+  bool esDomestico = true; 
+  @override 
+  void comer(int cantidad) { 
+    print('$animal come $cantidad kg de comida');
+  }
+  @override 
+  String toString() { 
+    return "Animal: $animal, Tipo: $type, Domestico: $esDomestico, Patas: $legs";
+     }
+}
